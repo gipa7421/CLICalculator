@@ -9,13 +9,39 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         while(!isAppFinished){
             System.out.print("Enter first value: ");
-            Double firstValue = Double.parseDouble(scanner.nextLine());
+
+            double firstValue;
+            while(true){
+                try {
+                    firstValue = Double.parseDouble(scanner.nextLine());
+                    break;
+                } catch (NumberFormatException nfe) {
+                    System.out.println("Wrong input. Try again");
+                }
+            }
 
             System.out.print("Enter operation (+-*/): ");
-            char operation = scanner.nextLine().charAt(0);
+
+            char operation;
+            while(true){
+                operation = scanner.nextLine().charAt(0);
+                if(operation == '+' || operation == '-' || operation == '*' || operation == '/'){
+                    break;
+                }
+                System.out.println("Wrong input. Try again");
+            }
 
             System.out.print("Enter second value: ");
-            Double secondValue = Double.parseDouble(scanner.nextLine());
+
+            double secondValue;
+            while(true){
+                try {
+                    secondValue = Double.parseDouble(scanner.nextLine());
+                    break;
+                } catch (NumberFormatException nfe) {
+                    System.out.println("Wrong input. Try again");
+                }
+            }
 
             double result = 0;
 
